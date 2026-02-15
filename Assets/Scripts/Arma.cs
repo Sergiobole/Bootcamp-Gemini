@@ -39,5 +39,17 @@ public class Arma : MonoBehaviour
             Debug.Log($"A arma {Nome} já está cheia! Munição atual: {MunicaoAtual}");
         }
     }
-    
+
+    void Update()
+    {
+        if(Input.GetMouseButtonDown(0)) // Se o jogador clicar com o mouse esquerdo
+        {
+            Atirar(); // Chama o método de atirar
+        }
+        else if(Input.GetKeyDown(KeyCode.R)) // Se o jogador apertar a tecla 'R'
+        {
+            Recarregar(); // Chama o método de recarregar
+        }
+    }
+
 }
