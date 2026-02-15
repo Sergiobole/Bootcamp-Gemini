@@ -5,9 +5,9 @@ public class Arma : MonoBehaviour
     // --- ATRIBUTOS (O que a arma tem) ---
     // Usamos 'public' para que essas variáveis apareçam lá no Inspector da Unity!
     [Header("Configurações da Arma")]
-    public string Nome;
-    public int MunicaoAtual;
-    public int Dano;
+    [SerializeField] private string Nome;
+    [SerializeField] private int MunicaoAtual;
+    [SerializeField] private int Dano;
 
     // --- MÉTODOS (O que a arma faz) ---
     public void Atirar()
@@ -40,6 +40,12 @@ public class Arma : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        MunicaoAtual = 30; // Começa com a arma cheia
+        Debug.Log($"Arma {Nome} criada com {MunicaoAtual} balas e dano de {Dano}");
+
+    }
     void Update()
     {
         if(Input.GetMouseButtonDown(0)) // Se o jogador clicar com o mouse esquerdo
