@@ -446,7 +446,7 @@ GameObject:
   - component: {fileID: 1293690035}
   - component: {fileID: 1293690034}
   m_Layer: 0
-  m_Name: Arma
+  m_Name: FiveSeveN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
