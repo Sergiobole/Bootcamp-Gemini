@@ -6,7 +6,7 @@ public class Arma : MonoBehaviour
     // Usamos 'public' para que essas variáveis apareçam lá no Inspector da Unity!
     [Header("Configurações da Arma")]
     [SerializeField] private string Nome;
-    [SerializeField] private int MunicaoAtual;
+    [SerializeField] private int MunicaoAtual, MunicaoTotal;
     [SerializeField] private int Dano;
 
     // --- MÉTODOS (O que a arma faz) ---
@@ -29,9 +29,9 @@ public class Arma : MonoBehaviour
     // Crie o método public void Recarregar()
     public void Recarregar()
     {
-        if(MunicaoAtual < 30)
+        if(MunicaoAtual < MunicaoTotal)
         {
-            MunicaoAtual = 30; // Recarrega a arma para o máximo de munição
+            MunicaoAtual = MunicaoTotal; // Recarrega a arma para o máximo de munição
             Debug.Log($"A arma {Nome} foi recarregada! Munição atual: {MunicaoAtual}");
         }
         else
@@ -42,20 +42,14 @@ public class Arma : MonoBehaviour
 
     void Start()
     {
-        MunicaoAtual = 30; // Começa com a arma cheia
+        
+        MunicaoAtual = MunicaoTotal; // Começa com a arma cheia
         Debug.Log($"Arma {Nome} criada com {MunicaoAtual} balas e dano de {Dano}");
 
     }
     void Update()
     {
-        if(Input.GetMouseButtonDown(0)) // Se o jogador clicar com o mouse esquerdo
-        {
-            Atirar(); // Chama o método de atirar
-        }
-        else if(Input.GetKeyDown(KeyCode.R)) // Se o jogador apertar a tecla 'R'
-        {
-            Recarregar(); // Chama o método de recarregar
-        }
+
     }
 
 }
